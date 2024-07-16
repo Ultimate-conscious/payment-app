@@ -1,12 +1,13 @@
 import mongoose from 'mongoose';
 import { Schema,model } from mongoose
+import { object, string } from 'zod';
 
 mongoose.connect('mongodb+srv://admin:Ab9dzz11qzSP22PI@cluster0.h8ec66h.mongodb.net/paytm')
     .then(()=>{
         console.log("DB Connected")
     })
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
     username: String,
     password: String,
     firstName: String,
@@ -43,6 +44,21 @@ const userSchema = new mongoose.Schema({
 
 const User = model('User', userSchema);
 
+const accountSchema = new Schema({
+    userId:{
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    balance: {
+        type: Number,
+        required: true
+    }
+});
+
+const Account = model('Account',accountSchema);
+
 module.exports = {
-	User
+	User,
+    Account
 };

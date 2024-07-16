@@ -2,8 +2,8 @@ import z from 'zod';
 
 const signupbody = z.object({
     username: z.string().email(),
-    firstname: z.string(),
-    lastname: z.string(),
+    firstName: z.string(),
+    lastName: z.string(),
     password: z.string().min(5)
 })
 const signinbody = z.object({
@@ -11,7 +11,15 @@ const signinbody = z.object({
     password: z.string().min(5)
 })
 
+const updateBody = zod.object({
+	password: zod.string().optional(),
+    firstName: zod.string().optional(),
+    lastName: zod.string().optional(),
+})
+
+
 module.exports = {
     signinbody,
-    signupbody
+    signupbody,
+    updateBody
 }
