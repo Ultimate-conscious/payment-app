@@ -1,7 +1,10 @@
-const mongoose = require('mongoose');
-const { Schema,model } = mongoose
+import mongoose from 'mongoose';
+import { Schema,model } from mongoose
 
-mongoose.connect('mongodb+srv://admin:Ab9dzz11qzSP22PI@cluster0.h8ec66h.mongodb.net/paytm/users');
+mongoose.connect('mongodb+srv://admin:Ab9dzz11qzSP22PI@cluster0.h8ec66h.mongodb.net/paytm')
+    .then(()=>{
+        console.log("DB Connected")
+    })
 
 const userSchema = new mongoose.Schema({
     username: {
