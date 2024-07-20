@@ -47,7 +47,7 @@ userRouter.post('/signup',async (req,res)=>{
 userRouter.post('/signin',async (req,res)=>{
     const body = req.body;
     const {success} = signinbody.safeParse(body);
-    if(success){
+    if(!success){
         return res.status(411).json({
             message: "Incorrect Inputs"
         })
@@ -56,7 +56,6 @@ userRouter.post('/signin',async (req,res)=>{
         username: body.username,
         password: body.password
     })
-
     if(existing==null){
         return res.status(411).json({
             message: "Error while logging in"
@@ -67,7 +66,6 @@ userRouter.post('/signin',async (req,res)=>{
     const token = jwt.sign({
         userId
     },JWT_SECRET);
-
     return res.status(200).json({
         token: token
     })
