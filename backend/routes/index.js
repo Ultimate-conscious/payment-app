@@ -1,11 +1,10 @@
-import express, { Router } from 'express'
-import {userRouter} from './user'
-import {accountRouter} from './account'
+import { Router } from 'express'
+import {userRouter} from './user.js'
+import {accountRouter} from './account.js'
 
-const mainRouter = express.Router();
+export const mainRouter = Router();
 
 mainRouter.use('/user', userRouter);
 
 mainRouter.use('/account',accountRouter);
 
-module.exports = mainRouter;

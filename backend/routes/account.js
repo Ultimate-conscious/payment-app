@@ -1,15 +1,16 @@
 import express from 'express'
-import {authMiddleware} from '../middleware'
-import {Account} from '../db'
+import {authMiddleware} from '../middleware.js'
+import {Account} from '../db.js'
+import mongoose from 'mongoose';
 
-const accountRouter = express.Router();
+export const accountRouter = express.Router();
 
 
 accountRouter.get('/balance',authMiddleware,async (req,res)=>{
     const account = await Account.findOne({
         userId: req.userId
     })
-    res.json({
+    return res.json({
         balance: account.balance
     })
 })
@@ -49,6 +50,3 @@ accountRouter.post("/transfer", authMiddleware, async (req, res) => {
         message: "Transfer successful"
     });
 });
-module.exports = {
-    accountRouter
-}

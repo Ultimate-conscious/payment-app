@@ -1,6 +1,5 @@
-import mongoose from 'mongoose';
-import { Schema,model } from mongoose
-import { object, string } from 'zod';
+import mongoose,{ Schema,model }from 'mongoose';
+
 
 mongoose.connect('mongodb+srv://admin:Ab9dzz11qzSP22PI@cluster0.h8ec66h.mongodb.net/paytm')
     .then(()=>{
@@ -42,7 +41,7 @@ const userSchema = new Schema({
     }
 });
 
-const User = model('User', userSchema);
+export const User = model('User', userSchema);
 
 const accountSchema = new Schema({
     userId:{
@@ -56,9 +55,9 @@ const accountSchema = new Schema({
     }
 });
 
-const Account = model('Account',accountSchema);
+export const Account = model('Account',accountSchema);
 
-module.exports = {
-	User,
-    Account
-};
+// module.exports = {
+// 	User,
+//     Account
+// };

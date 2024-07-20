@@ -1,25 +1,25 @@
 import z from 'zod';
 
-const signupbody = z.object({
+export const signupbody = z.object({
     username: z.string().email(),
+    password: z.string().min(5),
     firstName: z.string(),
-    lastName: z.string(),
-    password: z.string().min(5)
+    lastName: z.string()
 })
-const signinbody = z.object({
+export const signinbody = z.object({
     username: z.string().email(),
     password: z.string().min(5)
 })
 
-const updateBody = zod.object({
-	password: zod.string().optional(),
-    firstName: zod.string().optional(),
-    lastName: zod.string().optional(),
+export const updateBody = z.object({
+	password: z.string().optional(),
+    firstName: z.string().optional(),
+    lastName: z.string().optional(),
 })
 
 
-module.exports = {
-    signinbody,
-    signupbody,
-    updateBody
-}
+// module.exports = {
+//     signinbody,
+//     signupbody,
+//     updateBody
+// }
