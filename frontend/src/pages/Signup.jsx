@@ -1,8 +1,8 @@
-import {Heading} from "./Heading"
-import {SubHeading} from "./SubHeading"
-import {InputBox} from "./InputBox"
-import {Button} from "./Button"
-import {BottomWarning} from "./BottomWarning"
+import {Heading} from "../component/Heading"
+import {SubHeading} from "../component/SubHeading"
+import {InputBox} from "../component/InputBox"
+import {Button} from "../component/Button"
+import {BottomWarning} from "../component/BottomWarning"
 
 
 export function Signup(){
