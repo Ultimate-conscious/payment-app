@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Signup/>}></Route>
           <Route path="/signin" element={<Signin/>}></Route>
-          <Route path="/dashboard" element={<Dashboard/>}></Route>
+          <Route path="/dashboard" element={(localStorage.getItem('token')!=null)?<Dashboard/>:<Signin/>}></Route>
           <Route path="/send" element={<SendMoney/>}></Route>
         </Routes>
       </BrowserRouter>

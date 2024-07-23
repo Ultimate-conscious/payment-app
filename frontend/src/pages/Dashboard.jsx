@@ -20,7 +20,7 @@ export const Dashboard = () => {
         }
         getBalance()
 
-    })
+    },[]);
 
     return <div>
         <Appbar />
